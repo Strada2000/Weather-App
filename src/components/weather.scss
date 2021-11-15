@@ -1,0 +1,25 @@
+$primary: #11998e;
+$secondary: #38ef7d;
+$white: #fff;
+$gray: #9b9b9b;
+
+.main {
+  width: 100%;
+  overflow: hidden;
+  color: black;
+
+  .text {
+
+    width: 350px;
+
+    &:focus {
+      border: #fff;
+    }
+  }
+
+  .button {
+    background-color: black;
+    color: white;
+  }
+
+}
