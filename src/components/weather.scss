@@ -20,6 +20,10 @@ $gray: #9b9b9b;
   .button {
     background-color: black;
     color: white;
+    &:hover {
+      background-color: Grey;
+      color: $white;
+    }
   }
 
 }
