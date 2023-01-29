@@ -10,6 +10,7 @@ export default function Weather() {
   //using city name
   const [weather, setweather] = useState([]);
   const [city, setcity] = useState([]);
+  const URL = "https://api.openweathermap.org/data/2.5/weather";
 
   const uriEncodedCity = encodeURIComponent(city);
 
@@ -17,14 +18,8 @@ export default function Weather() {
   const getWeather = (e) => {
     e.preventDefault();
     fetch(
-      `https://community-open-weather-map.p.rapidapi.com/weather?q=${uriEncodedCity}&units=metric`,
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
-          "x-rapidapi-key": process.env.REACT_APP_RAPIDAPI_KEY,
-        },
-      }
+      URL +
+        `?q=${uriEncodedCity}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
     )
       .then((res) => res.json())
       .then((response) => {
@@ -41,14 +36,8 @@ export default function Weather() {
       let longitude = position.coords.longitude;
       let latitude = position.coords.latitude;
       fetch(
-        `https://community-open-weather-map.p.rapidapi.com/weather?lat=${latitude}&lon=${longitude}&units=metric`,
-        {
-          method: "GET",
-          headers: {
-            "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
-            "x-rapidapi-key": process.env.REACT_APP_RAPIDAPI_KEY,
-          },
-        }
+        URL +
+          `?lat=${latitude}&lon=${longitude}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
       )
         .then((res) => res.json())
         .then((response) => {
